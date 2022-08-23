@@ -9,20 +9,24 @@ import java.util.Arrays;
 public class inp_outp {
     public static void main(String[] args)throws Exception {
         File file = new File(
-                "C:\\Users\\Haralda pc\\IdeaProjects\\Bootcamp\\src\\main\\java\\day4\\task1.java");
-        BufferedReader br = new BufferedReader(new FileReader(file));
-
+                "C:\\Users\\Haralda pc\\IdeaProjects\\Bootcamp\\src\\main\\java\\day\\task1.java");
         String st;
         StringBuilder sum = new StringBuilder();
 
-        try {
-            while ((st = br.readLine()) != null) {
-                sum.append(st);
+        if(file.exists() && !file.isDirectory()) {
+            try {
+                BufferedReader br = new BufferedReader(new FileReader(file));
+                while ((st = br.readLine()) != null) {
+                    sum.append(st);
+                }
+            }catch (IOException e){
+                System.out.println("eror");
             }
-        }catch (IOException e){
-            System.out.println("eror");
+            byte[] b = sum.toString().getBytes();
+            System.out.print(Arrays.toString(b));
+        }else{
+            System.out.println("file not fond");
         }
-        byte[] b = sum.toString().getBytes();
-        System.out.print(Arrays.toString(b));
+
     }
 }
