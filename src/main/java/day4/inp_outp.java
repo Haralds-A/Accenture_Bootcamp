@@ -13,7 +13,6 @@ public class inp_outp {
         String st;
         StringBuilder sum = new StringBuilder();
 
-        if(file.exists() && !file.isDirectory()) {
             try {
                 BufferedReader br = new BufferedReader(new FileReader(file));
                 while ((st = br.readLine()) != null) {
@@ -24,9 +23,7 @@ public class inp_outp {
             }
             byte[] b = sum.toString().getBytes();
             System.out.print(Arrays.toString(b));
-        }else{
-            System.out.println("file not fond");
-        }
+//
 
     }
 }
